@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCRV PROJETOS | Portfólio</title>
+    
+    <!-- Tailwind CSS (Estilos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração de Fontes e Animações -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Classes para animação de scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utilitário para atraso na animação */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+    </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 selection:bg-black selection:text-white">
+
+    <!-- Navegação -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 text-white bg-transparent">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <div class="text-xl md:text-2xl font-bold tracking-tighter cursor-pointer uppercase" onclick="scrollToSection('home')">
+                GCRV PROJETOS<span id="brand-dot" class="text-neutral-500">.</span>
+            </div>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex space-x-12 text-sm font-medium tracking-wide">
+                <button onclick="scrollToSection('trabalhos')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Trabalhos</button>
+                <button onclick="scrollToSection('sobre')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Sobre</button>
+                <button onclick="scrollToSection('servicos')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Serviços</button>
+                <button onclick="scrollToSection('contato')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Contato</button>
+            </div>
+
+            <!-- Menu Mobile Icon -->
+            <button class="md:hidden" onclick="toggleMenu()">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white text-neutral-900 flex-col justify-center items-center space-y-8 hidden md:hidden">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <button onclick="mobileLink('trabalhos')" class="text-2xl font-light tracking-tight hover:opacity-50">Trabalhos</button>
+        <button onclick="mobileLink('sobre')" class="text-2xl font-light tracking-tight hover:opacity-50">Sobre</button>
+        <button onclick="mobileLink('servicos')" class="text-2xl font-light tracking-tight hover:opacity-50">Serviços</button>
+        <button onclick="mobileLink('contato')" class="text-2xl font-light tracking-tight hover:opacity-50">Contato</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex flex-col justify-center px-6 md:px-12 pt-20 overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-black/90"></div>
+        </div>
+
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="reveal">
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter leading-tight mb-8 text-white">
+                    Automação & <br />
+                    <span class="text-neutral-500">Criação Digital.</span>
+                </h1>
+            </div>
+            
+            <div class="reveal delay-200">
+                <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mb-12 font-light leading-relaxed">
+                    Transformando ideias em soluções tecnológicas. Especialista em desenvolvimento de sistemas, automações e experiências web de alto impacto.
+                </p>
+            </div>
+
+            <div class="reveal delay-400">
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <button onclick="scrollToSection('trabalhos')" class="bg-white text-black px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-neutral-300 transition-all flex items-center justify-center gap-2 group border border-transparent">
+                        Ver Portfolio
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <a href="http://wa.me/5561991280350" target="_blank" class="border border-white/30 text-white px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden md:block z-10 text-white">
+            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="trabalhos" class="py-24 px-6 md:px-12 bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div class="reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-neutral-400 uppercase mb-2">Portfolio</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold tracking-tight">Projetos em Destaque</h3>
+                </div>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+                <!-- Os projetos serão inseridos aqui via JavaScript para facilitar a manutenção, 
+                     mas você pode ver a lista no final do arquivo -->
+            </div>
+
+            <div class="reveal delay-200 mt-24 text-center border-t border-neutral-100 pt-12">
+                <span class="inline-block px-6 py-3 bg-neutral-100 text-neutral-600 rounded-full font-bold text-sm tracking-widest uppercase">
+                    + 27 projetos em execução/prontos
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 px-6 md:px-12 bg-neutral-950 text-white overflow-hidden">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- Imagem -->
+                <div class="relative order-2 lg:order-1 sticky top-24">
+                    <div class="reveal">
+                        <div class="relative z-10">
+                            <img src="https://i.ibb.co/C5JDPTTd/gabriela-carvalho.jpg" alt="Gabriela Carvalho" class="w-full max-w-md mx-auto md:mx-0 object-cover rounded-sm shadow-2xl transition-all duration-700" style="max-height: 600px;">
+                        </div>
+                        <div class="absolute top-8 left-8 md:left-12 w-full max-w-md h-full border border-neutral-700 z-0 hidden md:block"></div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="reveal delay-200">
+                        <h2 class="text-sm font-bold tracking-widest text-neutral-500 uppercase mb-4">Sobre Mim</h2>
+                        <h3 class="text-3xl md:text-5xl font-light leading-tight mb-8">Gabriela Carvalho</h3>
+                        <p class="text-neutral-400 text-lg leading-relaxed mb-6">
+                            Formada em Análise e Desenvolvimento de Sistemas, com 3 anos de atuação na área de tecnologia.
+                        </p>
+                        <p class="text-neutral-400 text-lg leading-relaxed mb-8">
+                            Sou especialista em automações e criações digitais. Meu foco é desenvolver soluções que não apenas funcionam tecnicamente, mas que também impulsionam resultados e otimizam processos para empresas e clientes.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-8 mt-8 mb-12 border-t border-neutral-800 pt-8">
+                            <div>
+                                <h4 class="text-3xl font-bold mb-2">3+</h4>
+                                <p class="text-neutral-500 text-sm uppercase tracking-wider">Anos de Experiência</p>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl font-bold mb-2">ADS</h4>
+                                <p class="text-neutral-500 text-sm uppercase tracking-wider">Formação Acadêmica</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-900 border border-neutral-800 p-8">
+                            <h4 class="text-lg font-bold mb-6 text-white">Por que me escolher?</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
+                                <!-- Lista de Diferenciais -->
+                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Entregas dentro do prazo</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Suporte pós-entrega</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Código limpo e otimizado</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Design personalizado</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Responsivo em todos dispositivos</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Focado em conversão</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-24 px-6 md:px-12 bg-black text-white border-t border-neutral-900">
+        <div class="container mx-auto max-w-6xl">
+            <div class="reveal">
+                <h2 class="text-sm font-bold tracking-widest text-neutral-500 uppercase mb-4 text-center">O Que Eu Faço</h2>
+                <h3 class="text-3xl md:text-5xl font-bold text-center mb-16">Soluções Completas</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-900 border border-neutral-900">
+                <!-- Serviço 1 -->
+                <div class="reveal delay-100">
+                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
+                        <i data-lucide="code-2" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
+                        <h4 class="text-xl font-bold mb-4">Desenvolvimento Web</h4>
+                        <p class="text-neutral-400 leading-relaxed text-sm">Sites e landing pages com as tecnologias mais modernas do mercado. Criação de arquiteturas robustas e escaláveis.</p>
+                    </div>
+                </div>
+                <!-- Serviço 2 -->
+                <div class="reveal delay-200">
+                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
+                        <i data-lucide="palette" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
+                        <h4 class="text-xl font-bold mb-4">Design Premium</h4>
+                        <p class="text-neutral-400 leading-relaxed text-sm">Interfaces impactantes que convertem visitantes em clientes. Foco total na experiência do usuário (UX) e estética refinada (UI).</p>
+                    </div>
+                </div>
+                <!-- Serviço 3 -->
+                <div class="reveal delay-300">
+                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
+                        <i data-lucide="zap" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
+                        <h4 class="text-xl font-bold mb-4">Alta Performance</h4>
+                        <p class="text-neutral-400 leading-relaxed text-sm">Sites rápidos, otimizados para SEO e prontos para escalar. Garantia de carregamento veloz e melhores rankings no Google.</p>
+                    </div>
+                </div>
+                <!-- Serviço 4 -->
+                <div class="reveal delay-400">
+                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
+                        <i data-lucide="bot" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
+                        <h4 class="text-xl font-bold mb-4">Automações</h4>
+                        <p class="text-neutral-400 leading-relaxed text-sm">Disparo em massa, integrações do site com CRM, chatbots inteligentes e otimização de processos para aumentar sua produtividade.</p>
+                    </div>
+                </div>
+                <!-- Serviço 5 -->
+                <div class="reveal delay-500">
+                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
+                        <i data-lucide="pen-tool" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
+                        <h4 class="text-xl font-bold mb-4">Copywriting</h4>
+                        <p class="text-neutral-400 leading-relaxed text-sm">Criação de textos persuasivos e personalizados, alinhados com o que o cliente quer e focados na conversão do seu público-alvo.</p>
+                    </div>
+                </div>
+                <!-- Serviço 6 -->
+                <div class="reveal delay-500">
+                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
+                        <i data-lucide="monitor-play" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
+                        <h4 class="text-xl font-bold mb-4">Apresentações</h4>
+                        <p class="text-neutral-400 leading-relaxed text-sm">Criação de apresentações personalizadas, slides impactantes e apresentações comerciais que contam histórias e fecham negócios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-24 px-6 md:px-12 bg-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <div class="reveal">
+                <h2 class="text-sm font-bold tracking-widest text-neutral-400 uppercase mb-4">Vamos Conversar</h2>
+                <h3 class="text-4xl md:text-6xl font-bold tracking-tight mb-8">Pronto para iniciar seu projeto?</h3>
+                <p class="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto">
+                    Entre em contato para discutirmos como a tecnologia pode transformar o seu negócio.
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-16">
+                    <a href="mailto:GCRVPROJETOS@GMAIL.COM" class="inline-flex items-center gap-3 bg-black text-white px-10 py-5 text-lg font-medium hover:bg-neutral-800 transition-all w-full md:w-auto justify-center">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        GCRVPROJETOS@GMAIL.COM
+                    </a>
+                    
+                    <a href="http://wa.me/5561991280350" target="_blank" class="inline-flex items-center gap-3 border border-black text-black px-10 py-5 text-lg font-medium hover:bg-black hover:text-white transition-all w-full md:w-auto justify-center">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        WhatsApp
+                    </a>
+                </div>
+
+                <div class="flex justify-center gap-8 text-neutral-900">
+                    <a href="https://www.instagram.com/eaigabiii/" target="_blank" class="hover:text-neutral-500 transition-colors p-2">
+                        <i data-lucide="instagram" class="w-7 h-7"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gabrielacarvalhoo/" target="_blank" class="hover:text-neutral-500 transition-colors p-2">
+                        <i data-lucide="linkedin" class="w-7 h-7"></i>
+                    </a>
+                </div>
+
+                <footer class="mt-24 text-neutral-400 text-sm">
+                    &copy; <span id="year"></span> GCRV PROJETOS - Gabriela Carvalho. Todos os direitos reservados.
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts da Lógica -->
+    <script>
+        // Inicializar ícones
+        lucide.createIcons();
+
+        // Data Atual
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Dados dos Projetos
+        const projects = [
+            { id: 1, title: "Apresentação Imobiliaria", category: "Institucional", link: "https://eaigabiii.github.io/Imob/", description: "Página de apresentação corporativa para empresa do ramo imobiliário." },
+            { id: 2, title: "12 Lunas", category: "Página de Vendas", link: "https://vanessaprudencio12lunass.netlify.app/", description: "Landing page focada em conversão para vendas de evento." },
+            { id: 3, title: "VSP Gestão", category: "Business", link: "https://vspgestao.com.br/", description: "Página estratégica de vendas e gestão de negócios." },
+            { id: 4, title: "Landing Page De Vendas para anuncios", category: "Landing Page Imobiliária", link: "https://imovelsementrada.rendape.com.br/", description: "Página de alta conversão para vendas de imóveis sem entrada." },
+            { id: 5, title: "Apresentação Interativa", category: "Soluções Digitais", link: "https://xn--apresentao-n5a1c.rendape.com.br/", description: "Apresentação intuitiva online para empresa de vendas imobiliárias." },
+            { id: 6, title: "WebSite - Divulgação Nutri", category: "Saúde & Bem-estar", link: "https://eaigabiii.github.io/CNNutri/", description: "Página de divulgação profissional para Nutricionista e Fisiculturista." },
+            { id: 8, title: "Park Beach", category: "Lançamento Imobiliário", link: "https://eaigabiii.github.io/ParkBeach/", description: "Apresentação visual impactante para empreendimento imobiliário." },
+            { id: 9, title: "Apresentação para cliente da Referencia Capital", category: "Personalizado", link: "https://eaigabiii.github.io/Apresenta-oJoao/", description: "Site exclusivo e personalizado para cliente da Referência Capital." },
+            { id: 10, title: "Treinamento de Comunicação", category: "Educacional Corporativo", link: "https://eaigabiii.github.io/Comunicacao/", description: "Plataforma de treinamento de comunicação para empresa." },
+            { id: 11, title: "World Clock - Conversor", category: "App Web / Utilitário", link: "https://eaigabiii.github.io/Relogio/", description: "Conversor de fuso horário dinâmico para diversos países e regiões." },
+            { id: 12, title: "Rafaela Portela", category: "Personal Branding", link: "https://eaigabiii.github.io/RafaelaPortela/", description: "Apresentação pessoal integrada com vitrine de produtos." },
+            { id: 13, title: "Campanha Black 400", category: "Marketing Institucional", link: "https://eaigabiii.github.io/Black400/", description: "Apresentação estratégica de campanha para empresa." }
+        ];
+
+        // Função de Imagem Fallback
+        function getFallbackImage(category) {
+            const map = {
+                'Institucional': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
+                'Página de Vendas': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
+                'Business': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+                'Landing Page Imobiliária': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
+                'Soluções Digitais': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
+                'Saúde & Bem-estar': 'https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?auto=format&fit=crop&q=80&w=800',
+                'Lançamento Imobiliário': 'https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&q=80&w=800',
+                'Personalizado': 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800',
+                'Educacional Corporativo': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800',
+                'App Web / Utilitário': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+                'Personal Branding': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
+                'Marketing Institucional': 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800'
+            };
+            return map[category] || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800';
+        }
+
+        // Renderizar Projetos
+        const grid = document.getElementById('projects-grid');
+        projects.forEach((proj, index) => {
+            const delayClass = index % 2 === 0 ? '' : 'delay-200';
+            const marginClass = (index % 2 !== 0 && window.innerWidth >= 768) ? 'md:mt-24' : '';
+            
+            const html = `
+            <div class="reveal ${delayClass}">
+                <a href="${proj.link}" target="_blank" rel="noopener noreferrer" class="group cursor-pointer block ${marginClass}">
+                    <div class="relative overflow-hidden bg-neutral-100 aspect-[4/3] mb-6 border border-neutral-100 shadow-sm transition-all duration-700">
+                        <img 
+                            src="https://s0.wp.com/mshots/v1/${encodeURIComponent(proj.link)}?w=800&h=600" 
+                            alt="${proj.title}"
+                            onerror="this.onerror=null;this.src='${getFallbackImage(proj.category)}'"
+                            class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                        />
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
+                            <span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white px-6 py-2 uppercase tracking-widest shadow-lg bg-black/40 backdrop-blur-sm">
+                                Visitar Site
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-1 group-hover:underline decoration-1 underline-offset-4 decoration-neutral-400">${proj.title}</h4>
+                            <p class="text-neutral-500 text-sm max-w-sm">${proj.description}</p>
+                            <p class="text-xs font-bold uppercase tracking-widest text-neutral-400 mt-2">${proj.category}</p>
+                        </div>
+                        <i data-lucide="external-link" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300 text-neutral-400"></i>
+                    </div>
+                </a>
+            </div>
+            `;
+            grid.insertAdjacentHTML('beforeend', html);
+        });
+        
+        // Re-inicializar ícones após adicionar HTML dinâmico
+        lucide.createIcons();
+
+        // Animação de Navbar e Reveal no Scroll
+        const navbar = document.getElementById('navbar');
+        const navbarDot = document.getElementById('brand-dot');
+        const menuIcon = document.getElementById('menu-icon');
+
+        window.addEventListener('scroll', () => {
+            // Navbar Logic
+            if (window.scrollY > 50) {
+                navbar.classList.remove('bg-transparent', 'text-white', 'py-6');
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'py-4', 'shadow-sm', 'text-neutral-900', 'border-b', 'border-neutral-100');
+                if(navbarDot) navbarDot.classList.replace('text-neutral-500', 'text-neutral-400');
+            } else {
+                navbar.classList.add('bg-transparent', 'text-white', 'py-6');
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'py-4', 'shadow-sm', 'text-neutral-900', 'border-b', 'border-neutral-100');
+                if(navbarDot) navbarDot.classList.replace('text-neutral-400', 'text-neutral-500');
+            }
+
+            // Reveal Logic
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        });
+
+        // Trigger scroll event on load to check initial state
+        window.dispatchEvent(new Event('scroll'));
+
+        // Menu Mobile Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        }
+
+        function mobileLink(id) {
+            toggleMenu();
+            scrollToSection(id);
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
