@@ -312,7 +312,9 @@
             { id: 10, title: "Treinamento de Comunicação", category: "Educacional Corporativo", link: "https://eaigabiii.github.io/Comunicacao/", description: "Plataforma de treinamento de comunicação para empresa." },
             { id: 11, title: "World Clock - Conversor", category: "App Web / Utilitário", link: "https://eaigabiii.github.io/Relogio/", description: "Conversor de fuso horário dinâmico para diversos países e regiões." },
             { id: 12, title: "Rafaela Portela", category: "Personal Branding", link: "https://eaigabiii.github.io/RafaelaPortela/", description: "Apresentação pessoal integrada com vitrine de produtos." },
-            { id: 13, title: "Campanha Black 400", category: "Marketing Institucional", link: "https://eaigabiii.github.io/Black400/", description: "Apresentação estratégica de campanha para empresa." }
+            { id: 13, title: "Campanha Black 400", category: "Marketing Institucional", link: "https://eaigabiii.github.io/Black400/", description: "Apresentação estratégica de campanha para empresa." },
+            { id: 14, title: "Rendapê", category: "Institucional Imobiliário", link: "https://rendape.com.br/", description: "Site oficial de empresa do ramo imobiliário." },
+            { id: 15, title: "Este Portfólio", category: "Portfólio Profissional", link: "#home", description: "O site que você está visitando agora. Minimalista, responsivo e otimizado para conversão." }
         ];
 
         // Função de Imagem Fallback
@@ -329,7 +331,9 @@
                 'Educacional Corporativo': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800',
                 'App Web / Utilitário': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
                 'Personal Branding': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
-                'Marketing Institucional': 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800'
+                'Marketing Institucional': 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800',
+                'Institucional Imobiliário': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
+                'Portfólio Profissional': 'https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&q=80&w=800'
             };
             return map[category] || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800';
         }
@@ -340,12 +344,21 @@
             const delayClass = index % 2 === 0 ? '' : 'delay-200';
             const marginClass = (index % 2 !== 0 && window.innerWidth >= 768) ? 'md:mt-24' : '';
             
+            // Lógica para screenshot ou fallback
+            let imgSrc;
+            if (proj.link === "#home") {
+                 // Caso especial para o próprio portfólio, usa direto o fallback
+                 imgSrc = getFallbackImage(proj.category);
+            } else {
+                 imgSrc = `https://s0.wp.com/mshots/v1/${encodeURIComponent(proj.link)}?w=800&h=600`;
+            }
+
             const html = `
             <div class="reveal ${delayClass}">
-                <a href="${proj.link}" target="_blank" rel="noopener noreferrer" class="group cursor-pointer block ${marginClass}">
+                <a href="${proj.link}" target="${proj.link === '#home' ? '_self' : '_blank'}" rel="noopener noreferrer" class="group cursor-pointer block ${marginClass}">
                     <div class="relative overflow-hidden bg-neutral-100 aspect-[4/3] mb-6 border border-neutral-100 shadow-sm transition-all duration-700">
                         <img 
-                            src="https://s0.wp.com/mshots/v1/${encodeURIComponent(proj.link)}?w=800&h=600" 
+                            src="${imgSrc}" 
                             alt="${proj.title}"
                             onerror="this.onerror=null;this.src='${getFallbackImage(proj.category)}'"
                             class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
