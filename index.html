@@ -15,6 +15,38 @@
         .delay-300 { transition-delay: 300ms; }
         .delay-400 { transition-delay: 400ms; }
         .delay-500 { transition-delay: 500ms; }
+
+        /* ── Spotlight ── */
+        @keyframes spotlight {
+            0% { opacity: 0; transform: translate(-72%, -62%) scale(0.5); }
+            100% { opacity: 1; transform: translate(-50%, -40%) scale(1); }
+        }
+        .animate-spotlight {
+            animation: spotlight 2s ease forwards;
+        }
+
+        /* ── Hero text animations ── */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero-line-1 { opacity: 0; animation: heroFadeUp 0.9s 0.1s ease both; }
+        .hero-line-2 { opacity: 0; animation: heroFadeUp 0.9s 0.3s ease both; }
+        .hero-line-3 { opacity: 0; animation: heroFadeUp 0.9s 0.5s ease both; }
+        .hero-line-4 { opacity: 0; animation: heroFadeUp 0.9s 0.7s ease both; }
+
+        /* ── Spline iframe wrapper ── */
+        #spline-wrap {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        #spline-wrap iframe {
+            width: 100%; height: 100%;
+            border: none;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-neutral-50 text-neutral-900 selection:bg-black selection:text-white">
@@ -49,37 +81,62 @@
     </div>
 
     <!-- Hero -->
-    <section id="home" class="relative h-screen flex flex-col justify-center px-6 md:px-12 pt-20 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-60">
-            <div class="absolute inset-0 bg-black/90"></div>
-        </div>
-        <div class="container mx-auto max-w-6xl relative z-10">
-            <div class="reveal">
-                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter leading-tight mb-8 text-white">
-                    Automação &amp; <br/>
-                    <span class="text-neutral-500">Criação Digital.</span>
+    <section id="home" class="relative h-screen flex overflow-hidden bg-black">
+
+        <!-- Spotlight SVG -->
+        <svg class="animate-spotlight pointer-events-none absolute z-[2] h-[169%] w-[138%] lg:w-[84%] opacity-0 -top-40 left-0 md:left-60 md:-top-20"
+             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3787 2842" fill="none">
+            <g filter="url(#spotlight-filter)">
+                <ellipse cx="1924.71" cy="273.501" rx="1924.71" ry="273.501"
+                    transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
+                    fill="white" fill-opacity="0.21"/>
+            </g>
+            <defs>
+                <filter id="spotlight-filter" x="0.86" y="0.84" width="3785.16" height="2840.26"
+                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feGaussianBlur stdDeviation="151" result="effect1_foregroundBlur"/>
+                </filter>
+            </defs>
+        </svg>
+
+        <!-- Left: text content -->
+        <div class="relative z-10 flex flex-col justify-center px-6 md:px-12 pt-20 w-full md:w-1/2">
+            <div class="container mx-auto max-w-2xl">
+                <p class="hero-line-1 text-xs font-bold tracking-widest text-neutral-500 uppercase mb-6">Automação &amp; Criação Digital</p>
+                <h1 class="hero-line-2 text-5xl md:text-7xl font-bold tracking-tighter leading-tight mb-6 text-white">
+                    Tecnologia que<br/>
+                    <span class="text-neutral-400">transforma.</span>
                 </h1>
-            </div>
-            <div class="reveal delay-200">
-                <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mb-12 font-light leading-relaxed">
-                    Transformando ideias em soluções tecnológicas. Especialista em desenvolvimento de sistemas, automações e experiências web de alto impacto.
+                <p class="hero-line-3 text-base md:text-lg text-neutral-400 max-w-md mb-10 font-light leading-relaxed">
+                    Especialista em desenvolvimento de sistemas, automações e experiências web de alto impacto.
                 </p>
-            </div>
-            <div class="reveal delay-400">
-                <div class="flex flex-col sm:flex-row gap-6">
-                    <button onclick="scrollToSection('trabalhos')" class="bg-white text-black px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-neutral-300 transition-all flex items-center justify-center gap-2">
+                <div class="hero-line-4 flex flex-col sm:flex-row gap-4">
+                    <button onclick="scrollToSection('trabalhos')" class="bg-white text-black px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-neutral-200 transition-all">
                         Ver Portfolio →
                     </button>
-                    <a href="http://wa.me/5561991280350" target="_blank" class="border border-white/30 text-white px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2">
+                    <a href="http://wa.me/5561991280350" target="_blank" class="border border-white/20 text-white px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all text-center">
                         WhatsApp
                     </a>
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden md:block z-10 text-white">
-            ↓
+
+        <!-- Right: Spline 3D -->
+        <div class="hidden md:block absolute right-0 top-0 w-1/2 h-full z-[1]">
+            <iframe
+                src="https://my.spline.design/untitled-k2pG47SY2mhMOLlF7BU3OIGl/"
+                style="width:100%;height:100%;border:none;pointer-events:none;"
+                loading="lazy"
+                title="3D Scene"
+            ></iframe>
+            <!-- gradient fade to left -->
+            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
         </div>
+
+        <!-- bottom bounce -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-30 hidden md:block z-10 text-white text-xs tracking-widest uppercase">scroll</div>
     </section>
 
     <!-- Portfolio -->
@@ -153,12 +210,12 @@
                 <h3 class="text-3xl md:text-5xl font-bold text-center mb-16">Soluções Completas</h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-900 border border-neutral-900">
-                <div class="reveal delay-100"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">🌐 Desenvolvimento Web</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites e landing pages com as tecnologias mais modernas do mercado. Criação de arquiteturas robustas e escaláveis.</p></div></div>
-                <div class="reveal delay-200"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">🎨 Design Premium</h4><p class="text-neutral-400 leading-relaxed text-sm">Interfaces impactantes que convertem visitantes em clientes. Foco total na experiência do usuário (UX) e estética refinada (UI).</p></div></div>
-                <div class="reveal delay-300"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">⚡ Alta Performance</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites rápidos, otimizados para SEO e prontos para escalar. Garantia de carregamento veloz e melhores rankings no Google.</p></div></div>
-                <div class="reveal delay-400"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">🤖 Automações</h4><p class="text-neutral-400 leading-relaxed text-sm">Disparo em massa, integrações do site com CRM, chatbots inteligentes e otimização de processos para aumentar sua produtividade.</p></div></div>
-                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">✍️ Copywriting</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de textos persuasivos e personalizados, alinhados com o que o cliente quer e focados na conversão do seu público-alvo.</p></div></div>
-                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">📊 Apresentações</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de apresentações personalizadas, slides impactantes e apresentações comerciais que contam histórias e fecham negócios.</p></div></div>
+                <div class="reveal delay-100"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><span class="text-xs font-bold tracking-widest text-neutral-600 uppercase mb-6 block">01</span><h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Desenvolvimento Web</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites e landing pages com as tecnologias mais modernas do mercado. Criação de arquiteturas robustas e escaláveis.</p></div></div>
+                <div class="reveal delay-200"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><span class="text-xs font-bold tracking-widest text-neutral-600 uppercase mb-6 block">02</span><h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Design Premium</h4><p class="text-neutral-400 leading-relaxed text-sm">Interfaces impactantes que convertem visitantes em clientes. Foco total na experiência do usuário (UX) e estética refinada (UI).</p></div></div>
+                <div class="reveal delay-300"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><span class="text-xs font-bold tracking-widest text-neutral-600 uppercase mb-6 block">03</span><h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Alta Performance</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites rápidos, otimizados para SEO e prontos para escalar. Garantia de carregamento veloz e melhores rankings no Google.</p></div></div>
+                <div class="reveal delay-400"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><span class="text-xs font-bold tracking-widest text-neutral-600 uppercase mb-6 block">04</span><h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Automações &amp; IA</h4><p class="text-neutral-400 leading-relaxed text-sm">Disparo em massa, integrações com CRM, agentes de IA, chatbots inteligentes e otimização de processos para aumentar produtividade.</p></div></div>
+                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><span class="text-xs font-bold tracking-widest text-neutral-600 uppercase mb-6 block">05</span><h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Copywriting</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de textos persuasivos e personalizados, alinhados com o que o cliente quer e focados na conversão do público-alvo.</p></div></div>
+                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><span class="text-xs font-bold tracking-widest text-neutral-600 uppercase mb-6 block">06</span><h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Apresentações</h4><p class="text-neutral-400 leading-relaxed text-sm">Slides impactantes e apresentações comerciais que contam histórias, encantam e fecham negócios.</p></div></div>
             </div>
         </div>
     </section>
@@ -172,10 +229,10 @@
                 <p class="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto">Entre em contato para discutirmos como a tecnologia pode transformar o seu negócio.</p>
                 <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-16">
                     <a href="mailto:GCRVPROJETOS@GMAIL.COM" class="inline-flex items-center gap-3 bg-black text-white px-10 py-5 text-lg font-medium hover:bg-neutral-800 transition-all w-full md:w-auto justify-center">
-                        ✉ GCRVPROJETOS@GMAIL.COM
+                        GCRVPROJETOS@GMAIL.COM
                     </a>
                     <a href="http://wa.me/5561991280350" target="_blank" class="inline-flex items-center gap-3 border border-black text-black px-10 py-5 text-lg font-medium hover:bg-black hover:text-white transition-all w-full md:w-auto justify-center">
-                        💬 WhatsApp
+                        WhatsApp
                     </a>
                 </div>
                 <div class="flex justify-center gap-8 text-neutral-900">
@@ -328,13 +385,3 @@
             }
             // reveal
             document.querySelectorAll('.reveal').forEach(function(el) {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-                    el.classList.add('active');
-                }
-            });
-        });
-
-        window.dispatchEvent(new Event('scroll'));
-    </script>
-</body>
-</html>
