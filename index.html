@@ -4,33 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCRV PROJETOS | Portfólio</title>
-    
-    <!-- Tailwind CSS (Estilos) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Ícones Lucide -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Configuração de Fontes e Animações -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Classes para animação de scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Utilitário para atraso na animação */
+        body { font-family: 'Inter', sans-serif; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
@@ -46,23 +26,19 @@
             <div class="text-xl md:text-2xl font-bold tracking-tighter cursor-pointer uppercase" onclick="scrollToSection('home')">
                 GCRV PROJETOS<span id="brand-dot" class="text-neutral-500">.</span>
             </div>
-
-            <!-- Menu Desktop -->
             <div class="hidden md:flex space-x-12 text-sm font-medium tracking-wide">
                 <button onclick="scrollToSection('trabalhos')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Trabalhos</button>
                 <button onclick="scrollToSection('sobre')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Sobre</button>
                 <button onclick="scrollToSection('servicos')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Serviços</button>
                 <button onclick="scrollToSection('contato')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Contato</button>
             </div>
-
-            <!-- Menu Mobile Icon -->
             <button class="md:hidden" onclick="toggleMenu()">
                 <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Menu Mobile Overlay -->
+    <!-- Menu Mobile -->
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-white text-neutral-900 flex-col justify-center items-center space-y-8 hidden md:hidden">
         <button onclick="toggleMenu()" class="absolute top-6 right-6">
             <i data-lucide="x" class="w-8 h-8"></i>
@@ -73,14 +49,12 @@
         <button onclick="mobileLink('contato')" class="text-2xl font-light tracking-tight hover:opacity-50">Contato</button>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="relative h-screen flex flex-col justify-center px-6 md:px-12 pt-20 overflow-hidden">
-        <!-- Background -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-black/90"></div>
         </div>
-
         <div class="container mx-auto max-w-6xl relative z-10">
             <div class="reveal">
                 <h1 class="text-5xl md:text-8xl font-bold tracking-tighter leading-tight mb-8 text-white">
@@ -88,13 +62,11 @@
                     <span class="text-neutral-500">Criação Digital.</span>
                 </h1>
             </div>
-            
             <div class="reveal delay-200">
                 <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mb-12 font-light leading-relaxed">
                     Transformando ideias em soluções tecnológicas. Especialista em desenvolvimento de sistemas, automações e experiências web de alto impacto.
                 </p>
             </div>
-
             <div class="reveal delay-400">
                 <div class="flex flex-col sm:flex-row gap-6">
                     <button onclick="scrollToSection('trabalhos')" class="bg-white text-black px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-neutral-300 transition-all flex items-center justify-center gap-2 group border border-transparent">
@@ -108,13 +80,12 @@
                 </div>
             </div>
         </div>
-        
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden md:block z-10 text-white">
             <i data-lucide="chevron-down" class="w-6 h-6"></i>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Portfolio -->
     <section id="trabalhos" class="py-24 px-6 md:px-12 bg-white">
         <div class="container mx-auto max-w-6xl">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16">
@@ -123,12 +94,7 @@
                     <h3 class="text-4xl md:text-5xl font-bold tracking-tight">Projetos em Destaque</h3>
                 </div>
             </div>
-
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
-                <!-- Os projetos serão inseridos aqui via JavaScript para facilitar a manutenção, 
-                     mas você pode ver a lista no final do arquivo -->
-            </div>
-
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16"></div>
             <div class="reveal delay-200 mt-24 text-center border-t border-neutral-100 pt-12">
                 <span class="inline-block px-6 py-3 bg-neutral-100 text-neutral-600 rounded-full font-bold text-sm tracking-widest uppercase">
                     + 27 projetos em execução/prontos
@@ -137,12 +103,10 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Sobre -->
     <section id="sobre" class="py-24 px-6 md:px-12 bg-neutral-950 text-white overflow-hidden">
         <div class="container mx-auto max-w-6xl">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                
-                <!-- Imagem -->
                 <div class="relative order-2 lg:order-1 sticky top-24">
                     <div class="reveal">
                         <div class="relative z-10">
@@ -151,18 +115,12 @@
                         <div class="absolute top-8 left-8 md:left-12 w-full max-w-md h-full border border-neutral-700 z-0 hidden md:block"></div>
                     </div>
                 </div>
-
                 <div class="order-1 lg:order-2">
                     <div class="reveal delay-200">
                         <h2 class="text-sm font-bold tracking-widest text-neutral-500 uppercase mb-4">Sobre Mim</h2>
                         <h3 class="text-3xl md:text-5xl font-light leading-tight mb-8">Gabriela Carvalho</h3>
-                        <p class="text-neutral-400 text-lg leading-relaxed mb-6">
-                            Formada em Análise e Desenvolvimento de Sistemas, com 3 anos de atuação na área de tecnologia.
-                        </p>
-                        <p class="text-neutral-400 text-lg leading-relaxed mb-8">
-                            Sou especialista em automações e criações digitais. Meu foco é desenvolver soluções que não apenas funcionam tecnicamente, mas que também impulsionam resultados e otimizam processos para empresas e clientes.
-                        </p>
-                        
+                        <p class="text-neutral-400 text-lg leading-relaxed mb-6">Formada em Análise e Desenvolvimento de Sistemas, com 3 anos de atuação na área de tecnologia.</p>
+                        <p class="text-neutral-400 text-lg leading-relaxed mb-8">Sou especialista em automações e criações digitais. Meu foco é desenvolver soluções que não apenas funcionam tecnicamente, mas que também impulsionam resultados e otimizam processos para empresas e clientes.</p>
                         <div class="grid grid-cols-2 gap-8 mt-8 mb-12 border-t border-neutral-800 pt-8">
                             <div>
                                 <h4 class="text-3xl font-bold mb-2">3+</h4>
@@ -173,11 +131,9 @@
                                 <p class="text-neutral-500 text-sm uppercase tracking-wider">Formação Acadêmica</p>
                             </div>
                         </div>
-
                         <div class="bg-neutral-900 border border-neutral-800 p-8">
                             <h4 class="text-lg font-bold mb-6 text-white">Por que me escolher?</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
-                                <!-- Lista de Diferenciais -->
                                 <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Entregas dentro do prazo</span></div>
                                 <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Suporte pós-entrega</span></div>
                                 <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Código limpo e otimizado</span></div>
@@ -192,98 +148,45 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Serviços -->
     <section id="servicos" class="py-24 px-6 md:px-12 bg-black text-white border-t border-neutral-900">
         <div class="container mx-auto max-w-6xl">
             <div class="reveal">
                 <h2 class="text-sm font-bold tracking-widest text-neutral-500 uppercase mb-4 text-center">O Que Eu Faço</h2>
                 <h3 class="text-3xl md:text-5xl font-bold text-center mb-16">Soluções Completas</h3>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-900 border border-neutral-900">
-                <!-- Serviço 1 -->
-                <div class="reveal delay-100">
-                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
-                        <i data-lucide="code-2" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
-                        <h4 class="text-xl font-bold mb-4">Desenvolvimento Web</h4>
-                        <p class="text-neutral-400 leading-relaxed text-sm">Sites e landing pages com as tecnologias mais modernas do mercado. Criação de arquiteturas robustas e escaláveis.</p>
-                    </div>
-                </div>
-                <!-- Serviço 2 -->
-                <div class="reveal delay-200">
-                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
-                        <i data-lucide="palette" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
-                        <h4 class="text-xl font-bold mb-4">Design Premium</h4>
-                        <p class="text-neutral-400 leading-relaxed text-sm">Interfaces impactantes que convertem visitantes em clientes. Foco total na experiência do usuário (UX) e estética refinada (UI).</p>
-                    </div>
-                </div>
-                <!-- Serviço 3 -->
-                <div class="reveal delay-300">
-                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
-                        <i data-lucide="zap" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
-                        <h4 class="text-xl font-bold mb-4">Alta Performance</h4>
-                        <p class="text-neutral-400 leading-relaxed text-sm">Sites rápidos, otimizados para SEO e prontos para escalar. Garantia de carregamento veloz e melhores rankings no Google.</p>
-                    </div>
-                </div>
-                <!-- Serviço 4 -->
-                <div class="reveal delay-400">
-                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
-                        <i data-lucide="bot" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
-                        <h4 class="text-xl font-bold mb-4">Automações</h4>
-                        <p class="text-neutral-400 leading-relaxed text-sm">Disparo em massa, integrações do site com CRM, chatbots inteligentes e otimização de processos para aumentar sua produtividade.</p>
-                    </div>
-                </div>
-                <!-- Serviço 5 -->
-                <div class="reveal delay-500">
-                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
-                        <i data-lucide="pen-tool" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
-                        <h4 class="text-xl font-bold mb-4">Copywriting</h4>
-                        <p class="text-neutral-400 leading-relaxed text-sm">Criação de textos persuasivos e personalizados, alinhados com o que o cliente quer e focados na conversão do seu público-alvo.</p>
-                    </div>
-                </div>
-                <!-- Serviço 6 -->
-                <div class="reveal delay-500">
-                    <div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group">
-                        <i data-lucide="monitor-play" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i>
-                        <h4 class="text-xl font-bold mb-4">Apresentações</h4>
-                        <p class="text-neutral-400 leading-relaxed text-sm">Criação de apresentações personalizadas, slides impactantes e apresentações comerciais que contam histórias e fecham negócios.</p>
-                    </div>
-                </div>
+                <div class="reveal delay-100"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="code-2" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Desenvolvimento Web</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites e landing pages com as tecnologias mais modernas do mercado. Criação de arquiteturas robustas e escaláveis.</p></div></div>
+                <div class="reveal delay-200"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="palette" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Design Premium</h4><p class="text-neutral-400 leading-relaxed text-sm">Interfaces impactantes que convertem visitantes em clientes. Foco total na experiência do usuário (UX) e estética refinada (UI).</p></div></div>
+                <div class="reveal delay-300"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="zap" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Alta Performance</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites rápidos, otimizados para SEO e prontos para escalar. Garantia de carregamento veloz e melhores rankings no Google.</p></div></div>
+                <div class="reveal delay-400"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="bot" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Automações</h4><p class="text-neutral-400 leading-relaxed text-sm">Disparo em massa, integrações do site com CRM, chatbots inteligentes e otimização de processos para aumentar sua produtividade.</p></div></div>
+                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="pen-tool" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Copywriting</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de textos persuasivos e personalizados, alinhados com o que o cliente quer e focados na conversão do seu público-alvo.</p></div></div>
+                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="monitor-play" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Apresentações</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de apresentações personalizadas, slides impactantes e apresentações comerciais que contam histórias e fecham negócios.</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contato -->
     <section id="contato" class="py-24 px-6 md:px-12 bg-white">
         <div class="container mx-auto max-w-4xl text-center">
             <div class="reveal">
                 <h2 class="text-sm font-bold tracking-widest text-neutral-400 uppercase mb-4">Vamos Conversar</h2>
                 <h3 class="text-4xl md:text-6xl font-bold tracking-tight mb-8">Pronto para iniciar seu projeto?</h3>
-                <p class="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto">
-                    Entre em contato para discutirmos como a tecnologia pode transformar o seu negócio.
-                </p>
-                
+                <p class="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto">Entre em contato para discutirmos como a tecnologia pode transformar o seu negócio.</p>
                 <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-16">
                     <a href="mailto:GCRVPROJETOS@GMAIL.COM" class="inline-flex items-center gap-3 bg-black text-white px-10 py-5 text-lg font-medium hover:bg-neutral-800 transition-all w-full md:w-auto justify-center">
                         <i data-lucide="mail" class="w-5 h-5"></i>
                         GCRVPROJETOS@GMAIL.COM
                     </a>
-                    
                     <a href="http://wa.me/5561991280350" target="_blank" class="inline-flex items-center gap-3 border border-black text-black px-10 py-5 text-lg font-medium hover:bg-black hover:text-white transition-all w-full md:w-auto justify-center">
                         <i data-lucide="message-circle" class="w-5 h-5"></i>
                         WhatsApp
                     </a>
                 </div>
-
                 <div class="flex justify-center gap-8 text-neutral-900">
-                    <a href="https://www.instagram.com/eaigabiii/" target="_blank" class="hover:text-neutral-500 transition-colors p-2">
-                        <i data-lucide="instagram" class="w-7 h-7"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/gabrielacarvalhoo/" target="_blank" class="hover:text-neutral-500 transition-colors p-2">
-                        <i data-lucide="linkedin" class="w-7 h-7"></i>
-                    </a>
+                    <a href="https://www.instagram.com/eaigabiii/" target="_blank" class="hover:text-neutral-500 transition-colors p-2"><i data-lucide="instagram" class="w-7 h-7"></i></a>
+                    <a href="https://www.linkedin.com/in/gabrielacarvalhoo/" target="_blank" class="hover:text-neutral-500 transition-colors p-2"><i data-lucide="linkedin" class="w-7 h-7"></i></a>
                 </div>
-
                 <footer class="mt-24 text-neutral-400 text-sm">
                     &copy; <span id="year"></span> GCRV PROJETOS - Gabriela Carvalho. Todos os direitos reservados.
                 </footer>
@@ -291,19 +194,29 @@
         </div>
     </section>
 
-    <!-- Scripts da Lógica -->
     <script>
-        // Inicializar ícones
+        document.addEventListener('DOMContentLoaded', function() {
         lucide.createIcons();
-
-        // Data Atual
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Dados dos Projetos
         const projects = [
-            { id: 1, title: "Apresentação Imobiliaria", category: "Institucional", link: "https://eaigabiii.github.io/Imob/", description: "Página de apresentação corporativa para empresa do ramo imobiliário." },
-            { id: 2, title: "12 Lunas", category: "Página de Vendas", link: "https://vanessaprudencio12lunass.netlify.app/", description: "Landing page focada em conversão para vendas de evento." },
+            { id: 113, title: "Orca AI — Plataforma de Gestão Financeira", category: "SaaS / Fintech", link: "https://orcaaigg.lovable.app/", description: "Plataforma de gestão financeira com inteligência artificial integrada." },
+            { id: 112, title: "Agente de IA — Qualificação e Agendamento", category: "Inteligência Artificial", link: "#home", description: "Agentes de IA que qualificam leads e agendam reuniões automaticamente via WhatsApp." },
+            { id: 111, title: "Axima — Apresentação Interativa", category: "Apresentação Interativa", link: "https://sistemaxima.lovable.app", description: "Apresentação interativa para empresa de investimentos imobiliários." },
+            { id: 101, title: "Nexus Rendapê (IA)", category: "SaaS / Inteligência Artificial", link: "https://nexus.rendape.com.br/", description: "Plataforma de gestão com IA - SaaS desenvolvido para a empresa Rendapê." },
+            { id: 102, title: "Amanda Dalpra", category: "Institucional Financeiro", link: "https://amandadalpra.netlify.app/", description: "Site institucional Premium para Head de Investimentos." },
+            { id: 103, title: "Felipe Freiria", category: "Institucional Financeiro", link: "https://felipefreiria.netlify.app/", description: "Site institucional de alta conversão para Head de Investimentos." },
+            { id: 104, title: "Snowprint", category: "Institucional Corporativo", link: "https://snowprint.com.br/", description: "Site oficial e catálogo para empresa líder em brindes corporativos." },
+            { id: 14, title: "Rendapê", category: "Institucional Imobiliário", link: "https://rendape.com.br/", description: "Site oficial de empresa do ramo imobiliário." },
+            { id: 105, title: "Helbor Collage", category: "Lançamento Imobiliário", link: "https://helborcollage.netlify.app/", description: "Apresentação visual de alto padrão para imóvel exclusivo." },
+            { id: 106, title: "Vila Mariana", category: "Lançamento Imobiliário", link: "https://vilamariana.netlify.app/", description: "Apresentação imersiva para imóvel de luxo exclusivo." },
             { id: 3, title: "VSP Gestão", category: "Business", link: "https://vspgestao.com.br/", description: "Página estratégica de vendas e gestão de negócios." },
+            { id: 2, title: "12 Lunas", category: "Página de Vendas", link: "https://vanessaprudencio12lunass.netlify.app/", description: "Landing page focada em conversão para vendas de evento." },
+            { id: 107, title: "Clientologia", category: "Apresentação Executiva", link: "https://amandaespecialista.netlify.app/", description: "Apresentação estratégica e imersiva sobre clientologia." },
+            { id: 108, title: "Palestra Financeira", category: "Apresentação Executiva", link: "https://palestramercadofinanceiro.netlify.app/", description: "Apresentação de alto impacto visual para palestra no mercado financeiro." },
+            { id: 109, title: "Pedro Jesus", category: "Projeto Financeiro", link: "https://pedrojesus.netlify.app/", description: "Apresentação e proposta de projeto financeiro exclusivo para cliente." },
+            { id: 110, title: "Gabriel Barbosa", category: "Proposta Comercial", link: "https://apgabrielbarbosa.netlify.app/", description: "Proposta comercial exclusiva e personalizada para cliente de alto ticket." },
+            { id: 1, title: "Apresentação Imobiliaria", category: "Institucional", link: "https://eaigabiii.github.io/Imob/", description: "Página de apresentação corporativa para empresa do ramo imobiliário." },
             { id: 4, title: "Landing Page De Vendas para anuncios", category: "Landing Page Imobiliária", link: "https://imovelsementrada.rendape.com.br/", description: "Página de alta conversão para vendas de imóveis sem entrada." },
             { id: 5, title: "Apresentação Interativa", category: "Soluções Digitais", link: "https://xn--apresentao-n5a1c.rendape.com.br/", description: "Apresentação intuitiva online para empresa de vendas imobiliárias." },
             { id: 6, title: "WebSite - Divulgação Nutri", category: "Saúde & Bem-estar", link: "https://eaigabiii.github.io/CNNutri/", description: "Página de divulgação profissional para Nutricionista e Fisiculturista." },
@@ -313,13 +226,20 @@
             { id: 11, title: "World Clock - Conversor", category: "App Web / Utilitário", link: "https://eaigabiii.github.io/Relogio/", description: "Conversor de fuso horário dinâmico para diversos países e regiões." },
             { id: 12, title: "Rafaela Portela", category: "Personal Branding", link: "https://eaigabiii.github.io/RafaelaPortela/", description: "Apresentação pessoal integrada com vitrine de produtos." },
             { id: 13, title: "Campanha Black 400", category: "Marketing Institucional", link: "https://eaigabiii.github.io/Black400/", description: "Apresentação estratégica de campanha para empresa." },
-            { id: 14, title: "Rendapê", category: "Institucional Imobiliário", link: "https://rendape.com.br/", description: "Site oficial de empresa do ramo imobiliário." },
             { id: 15, title: "Este Portfólio", category: "Portfólio Profissional", link: "#home", description: "O site que você está visitando agora. Minimalista, responsivo e otimizado para conversão." }
         ];
 
-        // Função de Imagem Fallback
         function getFallbackImage(category) {
             const map = {
+                'SaaS / Fintech': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+                'Inteligência Artificial': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
+                'Apresentação Interativa': 'https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80&w=800',
+                'SaaS / Inteligência Artificial': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
+                'Institucional Financeiro': 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800',
+                'Institucional Corporativo': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
+                'Apresentação Executiva': 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=800',
+                'Projeto Financeiro': 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800',
+                'Proposta Comercial': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
                 'Institucional': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
                 'Página de Vendas': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
                 'Business': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
@@ -338,35 +258,23 @@
             return map[category] || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800';
         }
 
-        // Renderizar Projetos
         const grid = document.getElementById('projects-grid');
         projects.forEach((proj, index) => {
             const delayClass = index % 2 === 0 ? '' : 'delay-200';
             const marginClass = (index % 2 !== 0 && window.innerWidth >= 768) ? 'md:mt-24' : '';
-            
-            // Lógica para screenshot ou fallback
-            let imgSrc;
-            if (proj.link === "#home") {
-                 // Caso especial para o próprio portfólio, usa direto o fallback
-                 imgSrc = getFallbackImage(proj.category);
-            } else {
-                 imgSrc = `https://s0.wp.com/mshots/v1/${encodeURIComponent(proj.link)}?w=800&h=600`;
-            }
+            let imgSrc = proj.link === "#home"
+                ? getFallbackImage(proj.category)
+                : `https://s0.wp.com/mshots/v1/${encodeURIComponent(proj.link)}?w=800&h=600`;
 
-            const html = `
+            grid.insertAdjacentHTML('beforeend', `
             <div class="reveal ${delayClass}">
                 <a href="${proj.link}" target="${proj.link === '#home' ? '_self' : '_blank'}" rel="noopener noreferrer" class="group cursor-pointer block ${marginClass}">
                     <div class="relative overflow-hidden bg-neutral-100 aspect-[4/3] mb-6 border border-neutral-100 shadow-sm transition-all duration-700">
-                        <img 
-                            src="${imgSrc}" 
-                            alt="${proj.title}"
+                        <img src="${imgSrc}" alt="${proj.title}"
                             onerror="this.onerror=null;this.src='${getFallbackImage(proj.category)}'"
-                            class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
-                        />
+                            class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"/>
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
-                            <span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white px-6 py-2 uppercase tracking-widest shadow-lg bg-black/40 backdrop-blur-sm">
-                                Visitar Site
-                            </span>
+                            <span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white px-6 py-2 uppercase tracking-widest shadow-lg bg-black/40 backdrop-blur-sm">Visitar Site</span>
                         </div>
                     </div>
                     <div class="flex justify-between items-start">
@@ -378,21 +286,15 @@
                         <i data-lucide="external-link" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300 text-neutral-400"></i>
                     </div>
                 </a>
-            </div>
-            `;
-            grid.insertAdjacentHTML('beforeend', html);
+            </div>`);
         });
-        
-        // Re-inicializar ícones após adicionar HTML dinâmico
+
         lucide.createIcons();
 
-        // Animação de Navbar e Reveal no Scroll
         const navbar = document.getElementById('navbar');
         const navbarDot = document.getElementById('brand-dot');
-        const menuIcon = document.getElementById('menu-icon');
 
         window.addEventListener('scroll', () => {
-            // Navbar Logic
             if (window.scrollY > 50) {
                 navbar.classList.remove('bg-transparent', 'text-white', 'py-6');
                 navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'py-4', 'shadow-sm', 'text-neutral-900', 'border-b', 'border-neutral-100');
@@ -402,40 +304,25 @@
                 navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'py-4', 'shadow-sm', 'text-neutral-900', 'border-b', 'border-neutral-100');
                 if(navbarDot) navbarDot.classList.replace('text-neutral-400', 'text-neutral-500');
             }
-
-            // Reveal Logic
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(element => {
-                const windowHeight = window.innerHeight;
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('active');
-                }
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100)
+                    el.classList.add('active');
             });
         });
 
-        // Trigger scroll event on load to check initial state
         window.dispatchEvent(new Event('scroll'));
+        }); // end DOMContentLoaded
 
-        // Menu Mobile Logic
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Funções globais acessíveis pelo onclick do HTML
         function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
         }
-
-        function mobileLink(id) {
-            toggleMenu();
-            scrollToSection(id);
-        }
-
+        function mobileLink(id) { toggleMenu(); scrollToSection(id); }
         function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
