@@ -21,6 +21,7 @@
   @keyframes spotlight{from{opacity:0;transform:translate(-72%,-62%) scale(0.5);}to{opacity:1;transform:translate(-50%,-40%) scale(1);}}
   .animate-spotlight{animation:spotlight 2s 0.3s ease both;}
   spline-viewer{width:100%;height:100%;display:block;}
+  @keyframes pulse{0%,100%{opacity:0.2;transform:scale(1);}50%{opacity:0.6;transform:scale(1.4);}}
 </style>
 <!-- Spline loads immediately, in parallel, non-blocking -->
 <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
@@ -77,12 +78,10 @@
 
   <!-- Right: robot (placeholder + spline loaded async) -->
   <div class="hidden md:block absolute right-0 top-0 w-1/2 h-full z-10" style="overflow:hidden;">
-    <!-- placeholder image shown immediately -->
-    <img id="robot-placeholder"
-      src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=90&w=900"
-      alt="AI Robot"
-      style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.85);transition:opacity 0.8s;position:absolute;inset:0;z-index:1;"
-    />
+    <!-- dark bg while spline loads -->
+    <div id="robot-placeholder" style="position:absolute;inset:0;z-index:1;background:#000;display:flex;align-items:center;justify-content:center;">
+      <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.15);animation:pulse 1.5s ease-in-out infinite;"></div>
+    </div>
     <!-- Spline viewer in HTML directly — browser fetches scene as soon as element is parsed -->
     <div id="spline-mount" style="position:absolute;inset:0;z-index:2;">
       <spline-viewer
