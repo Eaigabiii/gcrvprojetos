@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCRV PROJETOS | Portfólio</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
@@ -33,15 +32,15 @@
                 <button onclick="scrollToSection('contato')" class="hover:opacity-60 transition-opacity uppercase text-xs tracking-widest">Contato</button>
             </div>
             <button class="md:hidden" onclick="toggleMenu()">
-                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
         </div>
     </nav>
 
     <!-- Menu Mobile -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white text-neutral-900 flex-col justify-center items-center space-y-8 hidden md:hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white text-neutral-900 flex-col justify-center items-center space-y-8 hidden">
         <button onclick="toggleMenu()" class="absolute top-6 right-6">
-            <i data-lucide="x" class="w-8 h-8"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <button onclick="mobileLink('trabalhos')" class="text-2xl font-light tracking-tight hover:opacity-50">Trabalhos</button>
         <button onclick="mobileLink('sobre')" class="text-2xl font-light tracking-tight hover:opacity-50">Sobre</button>
@@ -58,7 +57,7 @@
         <div class="container mx-auto max-w-6xl relative z-10">
             <div class="reveal">
                 <h1 class="text-5xl md:text-8xl font-bold tracking-tighter leading-tight mb-8 text-white">
-                    Automação & <br />
+                    Automação &amp; <br/>
                     <span class="text-neutral-500">Criação Digital.</span>
                 </h1>
             </div>
@@ -69,19 +68,17 @@
             </div>
             <div class="reveal delay-400">
                 <div class="flex flex-col sm:flex-row gap-6">
-                    <button onclick="scrollToSection('trabalhos')" class="bg-white text-black px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-neutral-300 transition-all flex items-center justify-center gap-2 group border border-transparent">
-                        Ver Portfolio
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    <button onclick="scrollToSection('trabalhos')" class="bg-white text-black px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-neutral-300 transition-all flex items-center justify-center gap-2">
+                        Ver Portfolio →
                     </button>
                     <a href="http://wa.me/5561991280350" target="_blank" class="border border-white/30 text-white px-8 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i>
                         WhatsApp
                     </a>
                 </div>
             </div>
         </div>
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden md:block z-10 text-white">
-            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+            ↓
         </div>
     </section>
 
@@ -110,7 +107,7 @@
                 <div class="relative order-2 lg:order-1 sticky top-24">
                     <div class="reveal">
                         <div class="relative z-10">
-                            <img src="https://i.ibb.co/C5JDPTTd/gabriela-carvalho.jpg" alt="Gabriela Carvalho" class="w-full max-w-md mx-auto md:mx-0 object-cover rounded-sm shadow-2xl transition-all duration-700" style="max-height: 600px;">
+                            <img src="https://i.ibb.co/C5JDPTTd/gabriela-carvalho.jpg" alt="Gabriela Carvalho" class="w-full max-w-md mx-auto md:mx-0 object-cover rounded-sm shadow-2xl" style="max-height:600px;">
                         </div>
                         <div class="absolute top-8 left-8 md:left-12 w-full max-w-md h-full border border-neutral-700 z-0 hidden md:block"></div>
                     </div>
@@ -134,12 +131,12 @@
                         <div class="bg-neutral-900 border border-neutral-800 p-8">
                             <h4 class="text-lg font-bold mb-6 text-white">Por que me escolher?</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
-                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Entregas dentro do prazo</span></div>
-                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Suporte pós-entrega</span></div>
-                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Código limpo e otimizado</span></div>
-                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Design personalizado</span></div>
-                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Responsivo em todos dispositivos</span></div>
-                                <div class="flex items-center gap-3 text-neutral-300"><i data-lucide="check-circle-2" class="text-neutral-100 w-4 h-4"></i><span class="text-sm font-medium">Focado em conversão</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><span class="text-white text-sm">✓</span><span class="text-sm font-medium">Entregas dentro do prazo</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><span class="text-white text-sm">✓</span><span class="text-sm font-medium">Suporte pós-entrega</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><span class="text-white text-sm">✓</span><span class="text-sm font-medium">Código limpo e otimizado</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><span class="text-white text-sm">✓</span><span class="text-sm font-medium">Design personalizado</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><span class="text-white text-sm">✓</span><span class="text-sm font-medium">Responsivo em todos dispositivos</span></div>
+                                <div class="flex items-center gap-3 text-neutral-300"><span class="text-white text-sm">✓</span><span class="text-sm font-medium">Focado em conversão</span></div>
                             </div>
                         </div>
                     </div>
@@ -156,12 +153,12 @@
                 <h3 class="text-3xl md:text-5xl font-bold text-center mb-16">Soluções Completas</h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-900 border border-neutral-900">
-                <div class="reveal delay-100"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="code-2" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Desenvolvimento Web</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites e landing pages com as tecnologias mais modernas do mercado. Criação de arquiteturas robustas e escaláveis.</p></div></div>
-                <div class="reveal delay-200"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="palette" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Design Premium</h4><p class="text-neutral-400 leading-relaxed text-sm">Interfaces impactantes que convertem visitantes em clientes. Foco total na experiência do usuário (UX) e estética refinada (UI).</p></div></div>
-                <div class="reveal delay-300"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="zap" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Alta Performance</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites rápidos, otimizados para SEO e prontos para escalar. Garantia de carregamento veloz e melhores rankings no Google.</p></div></div>
-                <div class="reveal delay-400"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="bot" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Automações</h4><p class="text-neutral-400 leading-relaxed text-sm">Disparo em massa, integrações do site com CRM, chatbots inteligentes e otimização de processos para aumentar sua produtividade.</p></div></div>
-                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="pen-tool" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Copywriting</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de textos persuasivos e personalizados, alinhados com o que o cliente quer e focados na conversão do seu público-alvo.</p></div></div>
-                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors group"><i data-lucide="monitor-play" class="w-10 h-10 mb-6 text-neutral-500 group-hover:text-white transition-colors"></i><h4 class="text-xl font-bold mb-4">Apresentações</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de apresentações personalizadas, slides impactantes e apresentações comerciais que contam histórias e fecham negócios.</p></div></div>
+                <div class="reveal delay-100"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">🌐 Desenvolvimento Web</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites e landing pages com as tecnologias mais modernas do mercado. Criação de arquiteturas robustas e escaláveis.</p></div></div>
+                <div class="reveal delay-200"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">🎨 Design Premium</h4><p class="text-neutral-400 leading-relaxed text-sm">Interfaces impactantes que convertem visitantes em clientes. Foco total na experiência do usuário (UX) e estética refinada (UI).</p></div></div>
+                <div class="reveal delay-300"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">⚡ Alta Performance</h4><p class="text-neutral-400 leading-relaxed text-sm">Sites rápidos, otimizados para SEO e prontos para escalar. Garantia de carregamento veloz e melhores rankings no Google.</p></div></div>
+                <div class="reveal delay-400"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">🤖 Automações</h4><p class="text-neutral-400 leading-relaxed text-sm">Disparo em massa, integrações do site com CRM, chatbots inteligentes e otimização de processos para aumentar sua produtividade.</p></div></div>
+                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">✍️ Copywriting</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de textos persuasivos e personalizados, alinhados com o que o cliente quer e focados na conversão do seu público-alvo.</p></div></div>
+                <div class="reveal delay-500"><div class="bg-black p-10 h-full hover:bg-neutral-900 transition-colors"><h4 class="text-xl font-bold mb-4">📊 Apresentações</h4><p class="text-neutral-400 leading-relaxed text-sm">Criação de apresentações personalizadas, slides impactantes e apresentações comerciais que contam histórias e fecham negócios.</p></div></div>
             </div>
         </div>
     </section>
@@ -175,17 +172,15 @@
                 <p class="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto">Entre em contato para discutirmos como a tecnologia pode transformar o seu negócio.</p>
                 <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-16">
                     <a href="mailto:GCRVPROJETOS@GMAIL.COM" class="inline-flex items-center gap-3 bg-black text-white px-10 py-5 text-lg font-medium hover:bg-neutral-800 transition-all w-full md:w-auto justify-center">
-                        <i data-lucide="mail" class="w-5 h-5"></i>
-                        GCRVPROJETOS@GMAIL.COM
+                        ✉ GCRVPROJETOS@GMAIL.COM
                     </a>
                     <a href="http://wa.me/5561991280350" target="_blank" class="inline-flex items-center gap-3 border border-black text-black px-10 py-5 text-lg font-medium hover:bg-black hover:text-white transition-all w-full md:w-auto justify-center">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        WhatsApp
+                        💬 WhatsApp
                     </a>
                 </div>
                 <div class="flex justify-center gap-8 text-neutral-900">
-                    <a href="https://www.instagram.com/eaigabiii/" target="_blank" class="hover:text-neutral-500 transition-colors p-2"><i data-lucide="instagram" class="w-7 h-7"></i></a>
-                    <a href="https://www.linkedin.com/in/gabrielacarvalhoo/" target="_blank" class="hover:text-neutral-500 transition-colors p-2"><i data-lucide="linkedin" class="w-7 h-7"></i></a>
+                    <a href="https://www.instagram.com/eaigabiii/" target="_blank" class="hover:text-neutral-500 transition-colors p-2 text-2xl">IG</a>
+                    <a href="https://www.linkedin.com/in/gabrielacarvalhoo/" target="_blank" class="hover:text-neutral-500 transition-colors p-2 text-2xl">in</a>
                 </div>
                 <footer class="mt-24 text-neutral-400 text-sm">
                     &copy; <span id="year"></span> GCRV PROJETOS - Gabriela Carvalho. Todos os direitos reservados.
@@ -195,135 +190,151 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        lucide.createIcons();
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const projects = [
-            { id: 113, title: "Orca AI — Plataforma de Gestão Financeira", category: "SaaS / Fintech", link: "https://orcaaigg.lovable.app/", description: "Plataforma de gestão financeira com inteligência artificial integrada." },
-            { id: 112, title: "Agente de IA — Qualificação e Agendamento", category: "Inteligência Artificial", link: "#home", description: "Agentes de IA que qualificam leads e agendam reuniões automaticamente via WhatsApp." },
-            { id: 111, title: "Axima — Apresentação Interativa", category: "Apresentação Interativa", link: "https://sistemaxima.lovable.app", description: "Apresentação interativa para empresa de investimentos imobiliários." },
-            { id: 101, title: "Nexus Rendapê (IA)", category: "SaaS / Inteligência Artificial", link: "https://nexus.rendape.com.br/", description: "Plataforma de gestão com IA - SaaS desenvolvido para a empresa Rendapê." },
-            { id: 102, title: "Amanda Dalpra", category: "Institucional Financeiro", link: "https://amandadalpra.netlify.app/", description: "Site institucional Premium para Head de Investimentos." },
-            { id: 103, title: "Felipe Freiria", category: "Institucional Financeiro", link: "https://felipefreiria.netlify.app/", description: "Site institucional de alta conversão para Head de Investimentos." },
-            { id: 104, title: "Snowprint", category: "Institucional Corporativo", link: "https://snowprint.com.br/", description: "Site oficial e catálogo para empresa líder em brindes corporativos." },
-            { id: 14, title: "Rendapê", category: "Institucional Imobiliário", link: "https://rendape.com.br/", description: "Site oficial de empresa do ramo imobiliário." },
-            { id: 105, title: "Helbor Collage", category: "Lançamento Imobiliário", link: "https://helborcollage.netlify.app/", description: "Apresentação visual de alto padrão para imóvel exclusivo." },
-            { id: 106, title: "Vila Mariana", category: "Lançamento Imobiliário", link: "https://vilamariana.netlify.app/", description: "Apresentação imersiva para imóvel de luxo exclusivo." },
-            { id: 3, title: "VSP Gestão", category: "Business", link: "https://vspgestao.com.br/", description: "Página estratégica de vendas e gestão de negócios." },
-            { id: 2, title: "12 Lunas", category: "Página de Vendas", link: "https://vanessaprudencio12lunass.netlify.app/", description: "Landing page focada em conversão para vendas de evento." },
-            { id: 107, title: "Clientologia", category: "Apresentação Executiva", link: "https://amandaespecialista.netlify.app/", description: "Apresentação estratégica e imersiva sobre clientologia." },
-            { id: 108, title: "Palestra Financeira", category: "Apresentação Executiva", link: "https://palestramercadofinanceiro.netlify.app/", description: "Apresentação de alto impacto visual para palestra no mercado financeiro." },
-            { id: 109, title: "Pedro Jesus", category: "Projeto Financeiro", link: "https://pedrojesus.netlify.app/", description: "Apresentação e proposta de projeto financeiro exclusivo para cliente." },
-            { id: 110, title: "Gabriel Barbosa", category: "Proposta Comercial", link: "https://apgabrielbarbosa.netlify.app/", description: "Proposta comercial exclusiva e personalizada para cliente de alto ticket." },
-            { id: 1, title: "Apresentação Imobiliaria", category: "Institucional", link: "https://eaigabiii.github.io/Imob/", description: "Página de apresentação corporativa para empresa do ramo imobiliário." },
-            { id: 4, title: "Landing Page De Vendas para anuncios", category: "Landing Page Imobiliária", link: "https://imovelsementrada.rendape.com.br/", description: "Página de alta conversão para vendas de imóveis sem entrada." },
-            { id: 5, title: "Apresentação Interativa", category: "Soluções Digitais", link: "https://xn--apresentao-n5a1c.rendape.com.br/", description: "Apresentação intuitiva online para empresa de vendas imobiliárias." },
-            { id: 6, title: "WebSite - Divulgação Nutri", category: "Saúde & Bem-estar", link: "https://eaigabiii.github.io/CNNutri/", description: "Página de divulgação profissional para Nutricionista e Fisiculturista." },
-            { id: 8, title: "Park Beach", category: "Lançamento Imobiliário", link: "https://eaigabiii.github.io/ParkBeach/", description: "Apresentação visual impactante para empreendimento imobiliário." },
-            { id: 9, title: "Apresentação para cliente da Referencia Capital", category: "Personalizado", link: "https://eaigabiii.github.io/Apresenta-oJoao/", description: "Site exclusivo e personalizado para cliente da Referência Capital." },
-            { id: 10, title: "Treinamento de Comunicação", category: "Educacional Corporativo", link: "https://eaigabiii.github.io/Comunicacao/", description: "Plataforma de treinamento de comunicação para empresa." },
-            { id: 11, title: "World Clock - Conversor", category: "App Web / Utilitário", link: "https://eaigabiii.github.io/Relogio/", description: "Conversor de fuso horário dinâmico para diversos países e regiões." },
-            { id: 12, title: "Rafaela Portela", category: "Personal Branding", link: "https://eaigabiii.github.io/RafaelaPortela/", description: "Apresentação pessoal integrada com vitrine de produtos." },
-            { id: 13, title: "Campanha Black 400", category: "Marketing Institucional", link: "https://eaigabiii.github.io/Black400/", description: "Apresentação estratégica de campanha para empresa." },
-            { id: 15, title: "Este Portfólio", category: "Portfólio Profissional", link: "#home", description: "O site que você está visitando agora. Minimalista, responsivo e otimizado para conversão." }
-        ];
-
-        function getFallbackImage(category) {
-            const map = {
-                'SaaS / Fintech': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-                'Inteligência Artificial': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
-                'Apresentação Interativa': 'https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80&w=800',
-                'SaaS / Inteligência Artificial': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
-                'Institucional Financeiro': 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800',
-                'Institucional Corporativo': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
-                'Apresentação Executiva': 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=800',
-                'Projeto Financeiro': 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800',
-                'Proposta Comercial': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
-                'Institucional': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
-                'Página de Vendas': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
-                'Business': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-                'Landing Page Imobiliária': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
-                'Soluções Digitais': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
-                'Saúde & Bem-estar': 'https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?auto=format&fit=crop&q=80&w=800',
-                'Lançamento Imobiliário': 'https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&q=80&w=800',
-                'Personalizado': 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800',
-                'Educacional Corporativo': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800',
-                'App Web / Utilitário': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-                'Personal Branding': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
-                'Marketing Institucional': 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800',
-                'Institucional Imobiliário': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
-                'Portfólio Profissional': 'https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&q=80&w=800'
-            };
-            return map[category] || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800';
+        // ── Funções globais (onclick no HTML precisa acessar) ──
+        function scrollToSection(id) {
+            var el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+        function toggleMenu() {
+            var m = document.getElementById('mobile-menu');
+            m.classList.toggle('hidden');
+            m.classList.toggle('flex');
+        }
+        function mobileLink(id) {
+            toggleMenu();
+            scrollToSection(id);
         }
 
-        const grid = document.getElementById('projects-grid');
-        projects.forEach((proj, index) => {
-            const delayClass = index % 2 === 0 ? '' : 'delay-200';
-            const marginClass = (index % 2 !== 0 && window.innerWidth >= 768) ? 'md:mt-24' : '';
-            let imgSrc = proj.link === "#home"
-                ? getFallbackImage(proj.category)
-                : `https://s0.wp.com/mshots/v1/${encodeURIComponent(proj.link)}?w=800&h=600`;
+        // ── Dados dos projetos ──
+        var projects = [
+            { title: "Orca AI — Plataforma de Gestão Financeira", category: "SaaS / Fintech", link: "https://orcaaigg.lovable.app/", description: "Plataforma de gestão financeira com inteligência artificial integrada." },
+            { title: "Agente de IA — Qualificação e Agendamento", category: "Inteligência Artificial", link: "", description: "Agentes de IA que qualificam leads e agendam reuniões automaticamente via WhatsApp.", img: "https://i0.wp.com/www.cienciaedados.com/wp-content/uploads/2024/12/Agentes-de-IA-Conceito-Arquitetura-e-Aplicacoes-Parte-1.jpeg?fit=850%2C850&ssl=1" },
+            { title: "Axima — Apresentação Interativa", category: "Apresentação Interativa", link: "https://sistemaxima.lovable.app", description: "Apresentação interativa para empresa de investimentos imobiliários." },
+            { title: "Nexus Rendapê (IA)", category: "SaaS / Inteligência Artificial", link: "https://nexus.rendape.com.br/", description: "Plataforma de gestão com IA - SaaS desenvolvido para a empresa Rendapê." },
+            { title: "Amanda Dalpra", category: "Institucional Financeiro", link: "https://amandadalpra.netlify.app/", description: "Site institucional Premium para Head de Investimentos." },
+            { title: "Felipe Freiria", category: "Institucional Financeiro", link: "https://felipefreiria.netlify.app/", description: "Site institucional de alta conversão para Head de Investimentos." },
+            { title: "Snowprint", category: "Institucional Corporativo", link: "https://snowprint.com.br/", description: "Site oficial e catálogo para empresa líder em brindes corporativos." },
+            { title: "Rendapê", category: "Institucional Imobiliário", link: "https://rendape.com.br/", description: "Site oficial de empresa do ramo imobiliário." },
+            { title: "Helbor Collage", category: "Lançamento Imobiliário", link: "https://helborcollage.netlify.app/", description: "Apresentação visual de alto padrão para imóvel exclusivo." },
+            { title: "Vila Mariana", category: "Lançamento Imobiliário", link: "https://vilamariana.netlify.app/", description: "Apresentação imersiva para imóvel de luxo exclusivo." },
+            { title: "VSP Gestão", category: "Business", link: "https://vspgestao.com.br/", description: "Página estratégica de vendas e gestão de negócios." },
+            { title: "12 Lunas", category: "Página de Vendas", link: "https://vanessaprudencio12lunass.netlify.app/", description: "Landing page focada em conversão para vendas de evento." },
+            { title: "Clientologia", category: "Apresentação Executiva", link: "https://amandaespecialista.netlify.app/", description: "Apresentação estratégica e imersiva sobre clientologia." },
+            { title: "Palestra Financeira", category: "Apresentação Executiva", link: "https://palestramercadofinanceiro.netlify.app/", description: "Apresentação de alto impacto visual para palestra no mercado financeiro." },
+            { title: "Pedro Jesus", category: "Projeto Financeiro", link: "https://pedrojesus.netlify.app/", description: "Apresentação e proposta de projeto financeiro exclusivo para cliente." },
+            { title: "Gabriel Barbosa", category: "Proposta Comercial", link: "https://apgabrielbarbosa.netlify.app/", description: "Proposta comercial exclusiva e personalizada para cliente de alto ticket." },
+            { title: "Apresentação Imobiliaria", category: "Institucional", link: "https://eaigabiii.github.io/Imob/", description: "Página de apresentação corporativa para empresa do ramo imobiliário." },
+            { title: "Landing Page De Vendas para anuncios", category: "Landing Page Imobiliária", link: "https://imovelsementrada.rendape.com.br/", description: "Página de alta conversão para vendas de imóveis sem entrada." },
+            { title: "Apresentação Interativa Rendapê", category: "Soluções Digitais", link: "https://xn--apresentao-n5a1c.rendape.com.br/", description: "Apresentação intuitiva online para empresa de vendas imobiliárias." },
+            { title: "WebSite - Divulgação Nutri", category: "Saúde & Bem-estar", link: "https://eaigabiii.github.io/CNNutri/", description: "Página de divulgação profissional para Nutricionista e Fisiculturista." },
+            { title: "Park Beach", category: "Lançamento Imobiliário", link: "https://eaigabiii.github.io/ParkBeach/", description: "Apresentação visual impactante para empreendimento imobiliário." },
+            { title: "Apresentação para cliente da Referencia Capital", category: "Personalizado", link: "https://eaigabiii.github.io/Apresenta-oJoao/", description: "Site exclusivo e personalizado para cliente da Referência Capital." },
+            { title: "Treinamento de Comunicação", category: "Educacional Corporativo", link: "https://eaigabiii.github.io/Comunicacao/", description: "Plataforma de treinamento de comunicação para empresa." },
+            { title: "World Clock - Conversor", category: "App Web / Utilitário", link: "https://eaigabiii.github.io/Relogio/", description: "Conversor de fuso horário dinâmico para diversos países e regiões." },
+            { title: "Rafaela Portela", category: "Personal Branding", link: "https://eaigabiii.github.io/RafaelaPortela/", description: "Apresentação pessoal integrada com vitrine de produtos." },
+            { title: "Campanha Black 400", category: "Marketing Institucional", link: "https://eaigabiii.github.io/Black400/", description: "Apresentação estratégica de campanha para empresa." },
+            { title: "Este Portfólio", category: "Portfólio Profissional", link: "#home", description: "O site que você está visitando agora. Minimalista, responsivo e otimizado para conversão." }
+        ];
 
-            grid.insertAdjacentHTML('beforeend', `
-            <div class="reveal ${delayClass}">
-                <a href="${proj.link}" target="${proj.link === '#home' ? '_self' : '_blank'}" rel="noopener noreferrer" class="group cursor-pointer block ${marginClass}">
-                    <div class="relative overflow-hidden bg-neutral-100 aspect-[4/3] mb-6 border border-neutral-100 shadow-sm transition-all duration-700">
-                        <img src="${imgSrc}" alt="${proj.title}"
-                            onerror="this.onerror=null;this.src='${getFallbackImage(proj.category)}'"
-                            class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"/>
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
-                            <span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white px-6 py-2 uppercase tracking-widest shadow-lg bg-black/40 backdrop-blur-sm">Visitar Site</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h4 class="text-2xl font-bold mb-1 group-hover:underline decoration-1 underline-offset-4 decoration-neutral-400">${proj.title}</h4>
-                            <p class="text-neutral-500 text-sm max-w-sm">${proj.description}</p>
-                            <p class="text-xs font-bold uppercase tracking-widest text-neutral-400 mt-2">${proj.category}</p>
-                        </div>
-                        <i data-lucide="external-link" class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300 text-neutral-400"></i>
-                    </div>
-                </a>
-            </div>`);
+        var fallbacks = {
+            'SaaS / Fintech': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+            'Inteligência Artificial': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
+            'Apresentação Interativa': 'https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80&w=800',
+            'SaaS / Inteligência Artificial': 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
+            'Institucional Financeiro': 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800',
+            'Institucional Corporativo': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
+            'Apresentação Executiva': 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=800',
+            'Projeto Financeiro': 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800',
+            'Proposta Comercial': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
+            'Institucional': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
+            'Página de Vendas': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
+            'Business': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+            'Landing Page Imobiliária': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
+            'Soluções Digitais': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
+            'Saúde & Bem-estar': 'https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?auto=format&fit=crop&q=80&w=800',
+            'Lançamento Imobiliário': 'https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&q=80&w=800',
+            'Personalizado': 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800',
+            'Educacional Corporativo': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800',
+            'App Web / Utilitário': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+            'Personal Branding': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
+            'Marketing Institucional': 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800',
+            'Institucional Imobiliário': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
+            'Portfólio Profissional': 'https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&q=80&w=800'
+        };
+
+        function getFallback(cat) {
+            return fallbacks[cat] || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800';
+        }
+
+        // ── Renderizar projetos ──
+        var grid = document.getElementById('projects-grid');
+        projects.forEach(function(proj, index) {
+            var delayClass = index % 2 === 0 ? '' : 'delay-200';
+            var marginClass = (index % 2 !== 0) ? 'md:mt-24' : '';
+            var hasLink = proj.link && proj.link !== '';
+            var imgSrc = proj.img
+                ? proj.img
+                : (!hasLink || proj.link === '#home'
+                    ? getFallback(proj.category)
+                    : 'https://api.microlink.io/?url=' + encodeURIComponent(proj.link) + '&screenshot=true&meta=false&embed=screenshot.url');
+            var fb = getFallback(proj.category);
+            var target = proj.link === '#home' ? '_self' : '_blank';
+            var href = hasLink ? proj.link : 'javascript:void(0)';
+
+            var html = '<div class="reveal ' + delayClass + '">'
+                + '<a href="' + href + '" target="' + target + '" rel="noopener noreferrer" class="group cursor-pointer block ' + marginClass + '">'
+                + '<div class="relative overflow-hidden bg-neutral-100 aspect-[4/3] mb-6 border border-neutral-100 shadow-sm">'
+                + '<img src="' + imgSrc + '" alt="' + proj.title + '" onerror="this.onerror=null;this.src=\'' + fb + '\'" class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"/>'
+                + '<div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">'
+                + (hasLink ? '<span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white px-6 py-2 uppercase tracking-widest shadow-lg bg-black/40 backdrop-blur-sm">Visitar Site</span>' : '')
+                + '</div>'
+                + '</div>'
+                + '<div class="flex justify-between items-start">'
+                + '<div>'
+                + '<h4 class="text-2xl font-bold mb-1 group-hover:underline decoration-1 underline-offset-4 decoration-neutral-400">' + proj.title + '</h4>'
+                + '<p class="text-neutral-500 text-sm max-w-sm">' + proj.description + '</p>'
+                + '<p class="text-xs font-bold uppercase tracking-widest text-neutral-400 mt-2">' + proj.category + '</p>'
+                + '</div>'
+                + (hasLink ? '<span class="text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">↗</span>' : '')
+                + '</div>'
+                + '</a>'
+                + '</div>';
+
+            grid.insertAdjacentHTML('beforeend', html);
         });
 
-        lucide.createIcons();
+        // ── Ano ──
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        const navbar = document.getElementById('navbar');
-        const navbarDot = document.getElementById('brand-dot');
+        // ── Navbar scroll ──
+        var navbar = document.getElementById('navbar');
+        var navbarDot = document.getElementById('brand-dot');
 
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
-                navbar.classList.remove('bg-transparent', 'text-white', 'py-6');
-                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'py-4', 'shadow-sm', 'text-neutral-900', 'border-b', 'border-neutral-100');
-                if(navbarDot) navbarDot.classList.replace('text-neutral-500', 'text-neutral-400');
+                navbar.style.background = 'rgba(255,255,255,0.97)';
+                navbar.style.boxShadow = '0 1px 0 rgba(0,0,0,0.08)';
+                navbar.style.color = '#171717';
+                navbar.style.paddingTop = '1rem';
+                navbar.style.paddingBottom = '1rem';
+                if (navbarDot) navbarDot.style.color = '#a3a3a3';
             } else {
-                navbar.classList.add('bg-transparent', 'text-white', 'py-6');
-                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'py-4', 'shadow-sm', 'text-neutral-900', 'border-b', 'border-neutral-100');
-                if(navbarDot) navbarDot.classList.replace('text-neutral-400', 'text-neutral-500');
+                navbar.style.background = 'transparent';
+                navbar.style.boxShadow = 'none';
+                navbar.style.color = 'white';
+                navbar.style.paddingTop = '1.5rem';
+                navbar.style.paddingBottom = '1.5rem';
+                if (navbarDot) navbarDot.style.color = '#737373';
             }
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100)
+            // reveal
+            document.querySelectorAll('.reveal').forEach(function(el) {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
                     el.classList.add('active');
+                }
             });
         });
 
         window.dispatchEvent(new Event('scroll'));
-        }); // end DOMContentLoaded
-
-        // Funções globais acessíveis pelo onclick do HTML
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-        }
-        function mobileLink(id) { toggleMenu(); scrollToSection(id); }
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
     </script>
 </body>
 </html>
