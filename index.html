@@ -191,35 +191,42 @@ window.addEventListener('scroll',function(){
 function revealCheck(){document.querySelectorAll('.reveal.hidden-before').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight-80)el.classList.add('active');});}
 window.addEventListener('load',function(){revealCheck();window.dispatchEvent(new Event('scroll'));
 
-  // Load Spline AFTER page paint — never blocks content
-  setTimeout(function(){
-    var s=document.createElement('script');
-    s.type='module';
-    s.src='https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js';
-    s.onload=function(){
-      var mount=document.getElementById('spline-mount');
-      var placeholder=document.getElementById('robot-placeholder');
+  // Spline loads in parallel with page — inject script immediately, mount viewer right away
+  (function(){
+    var mount=document.getElementById('spline-mount');
+    var placeholder=document.getElementById('robot-placeholder');
+    function mountSpline(){
       if(!mount)return;
       var viewer=document.createElement('spline-viewer');
       viewer.setAttribute('url','https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode');
       viewer.setAttribute('events-target','global');
-      viewer.style.width='100%';
-      viewer.style.height='100%';
-      viewer.style.display='block';
+      viewer.style.cssText='width:100%;height:100%;display:block;';
       mount.appendChild(viewer);
-      // Show spline, hide placeholder after it loads
       viewer.addEventListener('load',function(){
         mount.style.opacity='1';
-        if(placeholder){placeholder.style.opacity='0';setTimeout(function(){placeholder.style.display='none';},800);}
+        if(placeholder){
+          placeholder.style.opacity='0';
+          setTimeout(function(){placeholder.style.display='none';},700);
+        }
       });
-      // Fallback after 6s
+      // Safety fallback: show after 8s regardless
       setTimeout(function(){
         mount.style.opacity='1';
-        if(placeholder){placeholder.style.opacity='0';}
-      },6000);
-    };
-    document.head.appendChild(s);
-  },600);
+        if(placeholder)placeholder.style.opacity='0';
+      },8000);
+    }
+    // Check if spline-viewer is already defined (script already loaded)
+    if(customElements.get('spline-viewer')){
+      mountSpline();
+    } else {
+      var s=document.createElement('script');
+      s.type='module';
+      s.src='https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js';
+      s.onload=mountSpline;
+      // Insert in <head> immediately — parallel with page render, non-blocking module
+      document.head.appendChild(s);
+    }
+  })();
 });
 
 // Projects
