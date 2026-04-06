@@ -22,6 +22,8 @@
   .animate-spotlight{animation:spotlight 2s 0.3s ease both;}
   spline-viewer{width:100%;height:100%;display:block;}
 </style>
+<!-- Spline loads immediately, in parallel, non-blocking -->
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 </head>
 <body class="bg-neutral-50 text-neutral-900">
 
@@ -81,8 +83,15 @@
       alt="AI Robot"
       style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.85);transition:opacity 0.8s;position:absolute;inset:0;z-index:1;"
     />
-    <!-- spline mounts here after load -->
-    <div id="spline-mount" style="position:absolute;inset:0;z-index:2;opacity:0;transition:opacity 1s;"></div>
+    <!-- Spline viewer in HTML directly — browser fetches scene as soon as element is parsed -->
+    <div id="spline-mount" style="position:absolute;inset:0;z-index:2;">
+      <spline-viewer
+        url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+        events-target="global"
+        style="width:100%;height:100%;display:block;opacity:0;transition:opacity 1s;"
+        id="spline-viewer-el"
+      ></spline-viewer>
+    </div>
     <!-- overlay fades -->
     <div style="position:absolute;inset-y:0;left:0;width:200px;background:linear-gradient(to right,#000,transparent);z-index:30;pointer-events:none;"></div>
     <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,#000,transparent);z-index:30;pointer-events:none;"></div>
@@ -191,41 +200,20 @@ window.addEventListener('scroll',function(){
 function revealCheck(){document.querySelectorAll('.reveal.hidden-before').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight-80)el.classList.add('active');});}
 window.addEventListener('load',function(){revealCheck();window.dispatchEvent(new Event('scroll'));
 
-  // Spline loads in parallel with page — inject script immediately, mount viewer right away
+  // Just fade in the viewer when the 3D scene finishes loading
   (function(){
-    var mount=document.getElementById('spline-mount');
+    var viewer=document.getElementById('spline-viewer-el');
     var placeholder=document.getElementById('robot-placeholder');
-    function mountSpline(){
-      if(!mount)return;
-      var viewer=document.createElement('spline-viewer');
-      viewer.setAttribute('url','https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode');
-      viewer.setAttribute('events-target','global');
-      viewer.style.cssText='width:100%;height:100%;display:block;';
-      mount.appendChild(viewer);
-      viewer.addEventListener('load',function(){
-        mount.style.opacity='1';
-        if(placeholder){
-          placeholder.style.opacity='0';
-          setTimeout(function(){placeholder.style.display='none';},700);
-        }
-      });
-      // Safety fallback: show after 8s regardless
-      setTimeout(function(){
-        mount.style.opacity='1';
-        if(placeholder)placeholder.style.opacity='0';
-      },8000);
-    }
-    // Check if spline-viewer is already defined (script already loaded)
-    if(customElements.get('spline-viewer')){
-      mountSpline();
-    } else {
-      var s=document.createElement('script');
-      s.type='module';
-      s.src='https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js';
-      s.onload=mountSpline;
-      // Insert in <head> immediately — parallel with page render, non-blocking module
-      document.head.appendChild(s);
-    }
+    if(!viewer)return;
+    viewer.addEventListener('load',function(){
+      viewer.style.opacity='1';
+      if(placeholder){placeholder.style.opacity='0';setTimeout(function(){placeholder.style.display='none';},700);}
+    });
+    // Fallback: show after 8s
+    setTimeout(function(){
+      if(viewer)viewer.style.opacity='1';
+      if(placeholder)placeholder.style.opacity='0';
+    },8000);
   })();
 });
 
